@@ -20,7 +20,9 @@ export const Layout = () => {
       <h1>BreakingBad Quotes</h1>
       <hr />
 
-      {(isLoading) ? <LoadingQuote /> : <Quote data={{quote: quote, author:author}} />}
+      {(isLoading) 
+      ? <LoadingQuote /> 
+      : <Quote data={{quote: quote, author:author}} />}
 
       <button onClick={()=>decrement()} className="btn btn-primary m-1">
         Previous quote
