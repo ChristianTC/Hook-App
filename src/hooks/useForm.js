@@ -1,3 +1,4 @@
+// Alternative ==> React hook form 
 import { useState } from "react"
 
 export const useForm = ( initialForm = {} ) => {
@@ -17,10 +18,15 @@ export const useForm = ( initialForm = {} ) => {
       [ name ]: value
     })
   }
+
+  const onResetForm = () => {
+    setFormState(initialForm)
+  }
   
   return {
     ...formState,
     formState,
-    onInputChange
+    onInputChange,
+    onResetForm
   }
 }
