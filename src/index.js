@@ -13,20 +13,22 @@ import ReactDOM from 'react-dom/client';
 // import { CallbackHook } from './06-memos/CallbackHook';
 import { Padre } from './07-tarea-memo/Padre';
 
+import './08-useReducer/intro-reducer'
+
 import "./index.css"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  // <HookApp />
-  // <CounterApp />
-  // <CounterWithCustomHook />
-  // <SimpleForm />
-  // <FormWithCustomHook />
-  // <MultipleCustomHooks />
-  // <FocusScreen />
-  // <Layout />
-  // <Memorize />
-  // <MemoHook />
-  // <CallbackHook />
-  <Padre />
-);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   // <HookApp />
+//   // <CounterApp />
+//   // <CounterWithCustomHook />
+//   // <SimpleForm />
+//   // <FormWithCustomHook />
+//   // <MultipleCustomHooks />
+//   // <FocusScreen />
+//   // <Layout />
+//   // <Memorize />
+//   // <MemoHook />
+//   // <CallbackHook />
+//   <Padre />
+// );
