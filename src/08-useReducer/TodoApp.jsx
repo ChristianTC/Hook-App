@@ -1,54 +1,35 @@
-import React, { useReducer } from 'react'
-import { todoReducer } from './todoReducer'
-
-const initialState = [
-  {
-    id: new Date().getTime(),
-    description: 'Collect soul stone',
-    done: false,
-  },
-  {
-    id: new Date().getTime()*3,
-    description: 'Collect power stone',
-    done: false,
-  },
-]
+import React from 'react'
+import TodoList from './TodoList'
+import TodoAdd from './TodoAdd'
+import { useTodo } from '../hooks/useTodo'
 
 const TodoApp = () => {
+// useTodo
+// todos, handleNewTodo, handleDeleteTodo, handleToggleTodo
 
-  const [todos, dispatch] = useReducer(todoReducer, initialState)
-
+  const {todos, todosCount, pendingTodosCount, handleNewTodo, handleDeleteTodo, handleToggleTodo} = useTodo()
+  
   return (
     <>
-      <h1>TodoApp (10), <small>pending: 2</small></h1>
+      <h1>TodoApp {todosCount}, <small>pending: {pendingTodosCount}</small></h1>
       <hr />
 
       <div className="row">
         <div className="col-7">
-          <ul className='list-group'>
-            {
-              todos.map( todo => (
-                <li key={todo.id} className='list-group-item d-flex justify-content-between'>
-                  <span className='align-self-center'>Item 1</span>
-                  <button className='btn btn-danger'>Remove</button>
-                </li>
-              ))
-            }
-          </ul> 
+          {/* TodoList */}
+          <TodoList 
+            todos={todos} 
+            onDeleteTodo={ handleDeleteTodo } 
+            onToggleTodo={ handleToggleTodo }
+            /> 
+          {/* End TodoList */}
         </div>
         <div className="col-5">
           <h4>Add TODO</h4>
           <hr />
-          <form>
-            <input 
-              type="text" 
-              placeholder='What is there to do?'
-              className='form-control'  
-            />
-            <button type="submit" className='btn btn-outline-primary mt-1'>
-              Add
-            </button>
-          </form>
+          {/* TodoAdd */}
+          <TodoAdd onNewTodo={handleNewTodo}/>
+          {/* End TodoAdd */}
         </div>
       </div>
     </>
